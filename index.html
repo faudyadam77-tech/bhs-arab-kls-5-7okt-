@@ -1,1075 +1,568 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuis Bahasa Arab - Tema Profesi (مِهْنَة)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan Bahasa Arab - Tema Profesi (المِهْنَة)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-<!-- Google Fonts for Typography -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- FontAwesome Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-<style>
-  :root {
-    --primary-color: #1e40af;
-    --primary-dark: #1e3a8a;
-    --primary-light: #eff6ff;
-    --accent-color: #f59e0b;
-    --success-color: #16a34a;
-    --danger-color: #dc2626;
-    --bg-gradient: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-    --card-bg: #ffffff;
-    --text-main: #1e293b;
-    --text-muted: #64748b;
-    --border-color: #cbd5e1;
-    --radius-lg: 16px;
-    --radius-md: 12px;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-    --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.1);
-  }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-  
-  body {
-    background: var(--bg-gradient);
-    min-height: 100vh;
-    padding: 24px 16px;
-    color: var(--text-main);
-  }
-  
-  .container {
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  
-  /* */
-  header {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    color: white;
-    padding: 32px 28px;
-    border-radius: var(--radius-lg);
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-md);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  header::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    pointer-events: none;
-  }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
 
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  
-  header h1 {
-    font-size: 26px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-  }
-  
-  header .arabic-title {
-    font-size: 36px;
-    font-family: 'Amiri', serif;
-    direction: rtl;
-    color: #fde047;
-    margin: 8px 0;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
+        .header h1 { color: #667eea; font-size: 28px; margin-bottom: 10px; }
+        .header h2 { color: #764ba2; font-size: 24px; margin-bottom: 10px; }
+        .header p { color: #666; font-size: 16px; }
 
-  .subtitle {
-    opacity: 0.92;
-    font-size: 14px;
-    line-height: 1.5;
-  }
+        .student-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
 
-  .gas-instructions-btn {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.4);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
+        .student-info label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: bold;
+        }
 
-  .gas-instructions-btn:hover {
-    background: rgba(255,255,255,0.35);
-    transform: translateY(-1px);
-  }
+        .student-info input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
 
-  /* */
-  .identity-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-  }
+        .student-info input:focus { outline: none; border-color: #667eea; }
 
-  .identity-card h3 {
-    font-size: 16px;
-    color: var(--primary-dark);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+        .section-title {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-  .form-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 16px;
-  }
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+        }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
+        .question-number {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-  .form-group label {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-muted);
-  }
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #333;
+        }
 
-  .form-group input, .form-group select {
-    padding: 12px 14px;
-    border: 1.5px solid var(--border-color);
-    border-radius: var(--radius-md);
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s, box-shadow 0.2s;
-  }
+        .arabic-text {
+            font-family: 'Traditional Arabic', 'Arabic Typesetting', serif;
+            font-size: 20px;
+            direction: rtl;
+            display: inline-block;
+            color: #764ba2;
+            font-weight: bold;
+        }
 
-  .form-group input:focus, .form-group select:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.15);
-  }
+        .options { display: flex; flex-direction: column; gap: 10px; }
 
-  /* */
-  .progress-bar {
-    background: var(--card-bg);
-    padding: 16px 20px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid var(--border-color);
-  }
-  
-  .progress-info {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-muted);
-  }
-  
-  .progress-track {
-    flex: 1;
-    height: 10px;
-    background: #e2e8f0;
-    border-radius: 5px;
-    margin: 0 16px;
-    overflow: hidden;
-  }
-  
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-    width: 0%;
-    transition: width 0.4s ease;
-  }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
 
-  .question-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 28px;
-    margin-bottom: 20px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
-    transition: all 0.2s;
-  }
-  
-  .question-card:hover {
-    box-shadow: var(--shadow-md);
-  }
+        .option:hover { border-color: #667eea; background: #f0f0ff; }
+        .option input[type="radio"] { margin-right: 10px; cursor: pointer; }
+        .option label { cursor: pointer; flex: 1; font-size: 16px; }
+        .option.selected { border-color: #667eea; background: #f0f0ff; }
 
-  .question-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
-  
-  .question-number {
-    background: var(--primary-light);
-    color: var(--primary-color);
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 15px;
-  }
-  
-  .question-label {
-    font-weight: 700;
-    color: var(--primary-dark);
-    font-size: 15px;
-  }
-  
-  .question-text {
-    margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--text-main);
-  }
-  
-  .arabic-box {
-    font-family: 'Amiri', serif;
-    font-size: 24px;
-    direction: rtl;
-    background: #f8fafc;
-    padding: 8px 18px;
-    border-radius: var(--radius-md);
-    margin: 10px 0;
-    display: inline-block;
-    border-right: 4px solid var(--primary-color);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.03);
-    line-height: 1.9;
-  }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.3s;
+        }
 
-  .options {
-    display: grid;
-    gap: 12px;
-  }
-  
-  .option input[type="radio"] {
-    display: none;
-  }
-  
-  .option label {
-    display: flex;
-    align-items: center;
-    padding: 14px 18px;
-    background: #f8fafc;
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 15px;
-  }
-  
-  .option label:hover {
-    background: #f1f5f9;
-    border-color: #94a3b8;
-  }
-  
-  .option input[type="radio"]:checked + label {
-    background: var(--primary-light);
-    border-color: var(--primary-color);
-    color: var(--primary-dark);
-    font-weight: 700;
-  }
-  
-  .option.correct label {
-    background: #f0fdf4 !important;
-    border-color: var(--success-color) !important;
-    color: #14532d !important;
-  }
-  
-  .option.wrong label {
-    background: #fef2f2 !important;
-    border-color: var(--danger-color) !important;
-    color: #7f1d1d !important;
-  }
-  
-  .option-badge {
-    width: 30px;
-    height: 30px;
-    background: #e2e8f0;
-    color: #475569;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    margin-right: 14px;
-    font-size: 13px;
-    flex-shrink: 0;
-  }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
 
-  .option input[type="radio"]:checked + label .option-badge {
-    background: var(--primary-color);
-    color: white;
-  }
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
 
-  .option.correct .option-badge { background: var(--success-color) !important; color: white !important; }
-  .option.wrong .option-badge { background: var(--danger-color) !important; color: white !important; }
-  
-  .explanation {
-    margin-top: 16px;
-    padding: 16px;
-    background: #fffbe3;
-    border-left: 4px solid #f59e0b;
-    border-radius: var(--radius-md);
-    font-size: 14px;
-    line-height: 1.6;
-    display: none;
-    color: #78350f;
-  }
-  
-  .explanation.show { display: block; }
+        .result-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
 
-  /* */
-  .submit-section {
-    text-align: center;
-    margin: 32px 0 48px;
-  }
-  
-  .btn {
-    padding: 14px 36px;
-    font-size: 15px;
-    font-weight: 700;
-    border: none;
-    border-radius: var(--radius-md);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    box-shadow: var(--shadow-sm);
-  }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, #1e40af, #2563eb);
-    color: white;
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-  }
-  
-  .btn-secondary {
-    background: var(--card-bg);
-    color: var(--text-muted);
-    border: 1.5px solid var(--border-color);
-    margin-left: 10px;
-  }
-  
-  .btn-secondary:hover {
-    background: #f1f5f9;
-    color: var(--text-main);
-  }
+        .result-content {
+            background: white;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+        }
 
-  .modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(4px);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  
-  .modal.show { display: flex; }
-  
-  .modal-content {
-    background: white;
-    border-radius: var(--radius-lg);
-    padding: 36px;
-    max-width: 560px;
-    width: 100%;
-    text-align: center;
-    animation: zoomIn 0.3s ease;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  
-  @keyframes zoomIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  
-  .score-circle {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
-  }
-  
-  .score-number { font-size: 44px; font-weight: 800; line-height: 1; }
-  .score-label { font-size: 12px; opacity: 0.85; margin-top: 4px; }
-  
-  .result-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 20px 0;
-    padding: 16px;
-    background: #f8fafc;
-    border-radius: var(--radius-md);
-  }
-  
-  .stat-value { font-size: 20px; font-weight: 800; }
-  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #666;
+            background: none;
+            border: none;
+        }
 
-  .sending-status {
-    padding: 12px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-    font-size: 13px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-weight: 600;
-  }
+        .score-display {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
 
-  .sending-status.loading { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
-  .sending-status.success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-  .sending-status.error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .score-display h2 { font-size: 48px; margin-bottom: 10px; }
+        .score-display p { font-size: 20px; }
 
-  /* Code Block Box inside Modal */
-  .code-box {
-    background: #0f172a;
-    color: #38bdf8;
-    text-align: left;
-    padding: 16px;
-    border-radius: 8px;
-    font-family: monospace;
-    font-size: 12px;
-    max-height: 240px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    margin: 12px 0;
-    border: 1px solid #334155;
-  }
+        .answer-review { margin-top: 30px; }
 
-  /* Custom Alert Banner */
-  .alert-banner {
-    display: none;
-    background: #fef2f2;
-    border: 1px solid #fca5a5;
-    color: #991b1b;
-    padding: 12px 16px;
-    border-radius: var(--radius-md);
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    align-items: center;
-    gap: 10px;
-  }
-  .alert-banner.show { display: flex; }
+        .answer-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid;
+        }
 
-  @media (max-width: 600px) {
-    header h1 { font-size: 20px; }
-    .question-card { padding: 20px; }
-    .arabic-box { font-size: 20px; }
-  }
-</style>
+        .answer-item.correct { background: #d4edda; border-color: #28a745; }
+        .answer-item.incorrect { background: #f8d7da; border-color: #dc3545; }
+        .answer-item h4 { margin-bottom: 10px; font-size: 16px; }
+        .answer-item p { margin: 5px 0; font-size: 14px; }
+
+        .send-btn {
+            width: 100%;
+            padding: 15px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .send-btn:hover { background: #218838; }
+        .send-btn:disabled { background: #ccc; cursor: not-allowed; }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s;
+            width: 0%;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .header h1 { font-size: 22px; }
+            .header h2 { font-size: 18px; }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>Latihan Bahasa Arab</h1>
+            <h2>المِهْنَة (Profesi)</h2>
+            <p>Kelas 5 SD — Pilih jawaban yang paling tepat!</p>
+        </div>
 
-<div class="container">
-  <header>
-    <div class="header-top">
-      <h1>Soal Bahasa Arab - Tema Profesi</h1>
-      <button class="gas-instructions-btn" onclick="openGasModal()">
-        <i class="fa-solid fa-gear"></i> Setup Google Drive Guru
-      </button>
-    </div>
-    <div class="arabic-title">مِهْنَة - Kelas 6 SD/MI</div>
-    <p class="subtitle">Jawab pertanyaan dengan teliti. Hasil kuis akan terkirim otomatis ke folder Google Drive Guru!</p>
-  </header>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
 
-  <!-- Banner Peringatan Input -->
-  <div class="alert-banner" id="alertBanner">
-    <i class="fa-solid fa-triangle-exclamation"></i>
-    <span id="alertText">Mohon lengkapi Nama Lengkap dan Nomor Absen sebelum mengirim!</span>
-  </div>
+        <div class="student-info">
+            <label for="studentName">Nama Lengkap:</label>
+            <input type="text" id="studentName" placeholder="Masukkan nama lengkap">
+            <label for="studentClass">Kelas:</label>
+            <input type="text" id="studentClass" placeholder="Contoh: 5A">
+        </div>
 
-  <div class="identity-card">
-    <h3><i class="fa-solid fa-user-graduate"></i> Identitas Siswa</h3>
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="studentName">Nama Lengkap Siswa *</label>
-        <input type="text" id="studentName" placeholder="Contoh: Ahmad Rizky" required>
-      </div>
-      <div class="form-group">
-        <label for="studentClass">Kelas *</label>
-        <select id="studentClass">
-          <option value="Kelas 6-A">Kelas 6-A</option>
-          <option value="Kelas 6-B">Kelas 6-B</option>
-          <option value="Kelas 6-C">Kelas 6-C</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="studentAbsence">Nomor Absen *</label>
-        <input type="number" id="studentAbsence" placeholder="Contoh: 05" min="1" max="50" required>
-      </div>
-    </div>
-  </div>
+        <form id="quizForm">
+            <!-- Bagian A -->
+            <div class="section-title">A. Tebak Siapa Aku? (Soal 1-3)</div>
 
-  <div class="progress-bar">
-    <span class="progress-info" id="progressText"><i class="fa-solid fa-list-check"></i> 0 dari 10 soal dijawab</span>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill"></div>
-    </div>
-  </div>
+            <div class="question">
+                <div class="question-number">Soal 1</div>
+                <div class="question-text">"Aku bekerja di proyek pembangunan. Setiap hari aku memakai helm kuning dan membawa gambar rancangan bangunan. Aku adalah seorang..."</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q1" value="a" id="q1a"><label for="q1a">a. <span class="arabic-text">خَيَّاط</span> (Khayyat)</label></div>
+                    <div class="option"><input type="radio" name="q1" value="b" id="q1b"><label for="q1b">b. <span class="arabic-text">مُهَنْدِس</span> (Muhandis)</label></div>
+                    <div class="option"><input type="radio" name="q1" value="c" id="q1c"><label for="q1c">c. <span class="arabic-text">صَيَّاد</span> (Sayyad)</label></div>
+                    <div class="option"><input type="radio" name="q1" value="d" id="q1d"><label for="q1d">d. <span class="arabic-text">مُمَرِّض</span> (Mumarrid)</label></div>
+                </div>
+            </div>
 
-  <form id="quizForm">
-    <!-- Soal 1 -->
-    <div class="question-card" data-answer="B">
-      <div class="question-header">
-        <span class="question-number">1</span>
-        <span class="question-label">Teka-Teki Profesi</span>
-      </div>
-      <div class="question-text">
-        "Aku bekerja di laut yang luas. Aku melempar jala untuk mencari ikan. Aku seorang <strong>perempuan</strong>."<br><br>
-        Siapakah aku?
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q1" id="q1a" value="A"><label for="q1a"><span class="option-badge">A</span>صَيَّاد</label></div>
-        <div class="option"><input type="radio" name="q1" id="q1b" value="B"><label for="q1b"><span class="option-badge">B</span>صَيَّادَة</label></div>
-        <div class="option"><input type="radio" name="q1" id="q1c" value="C"><label for="q1c"><span class="option-badge">C</span>خَيَّاط</label></div>
-        <div class="option"><input type="radio" name="q1" id="q1d" value="D"><label for="q1d"><span class="option-badge">D</span>خَيَّاطَة</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Kata kunci "laut/ikan" = Nelayan (صَيَّاد), dan karena "perempuan" maka ditambah huruf ة (ta marbutah) menjadi صَيَّادَة.
-      </div>
-    </div>
+            <div class="question">
+                <div class="question-number">Soal 2</div>
+                <div class="question-text">"Aku pergi ke laut setiap pagi. Aku membawa jala dan perahu kecil. Hasil tangkapanku adalah ikan. Aku adalah seorang..."</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q2" value="a" id="q2a"><label for="q2a">a. <span class="arabic-text">صَيَّاد</span> (Sayyad)</label></div>
+                    <div class="option"><input type="radio" name="q2" value="b" id="q2b"><label for="q2b">b. <span class="arabic-text">خَيَّاط</span> (Khayyat)</label></div>
+                    <div class="option"><input type="radio" name="q2" value="c" id="q2c"><label for="q2c">c. <span class="arabic-text">مُهَنْدِس</span> (Muhandis)</label></div>
+                    <div class="option"><input type="radio" name="q2" value="d" id="q2d"><label for="q2d">d. <span class="arabic-text">مُمَرِّض</span> (Mumarrid)</label></div>
+                </div>
+            </div>
 
-    <!-- Soal 2 -->
-    <div class="question-card" data-answer="A">
-      <div class="question-header">
-        <span class="question-number">2</span>
-        <span class="question-label">Pola Logika (Analogi)</span>
-      </div>
-      <div class="question-text">
-        Perhatikan pola berikut:<br>
-        <span class="arabic-box">مُهَنْدِس</span> (Insinyur Laki-laki) &rarr; <span class="arabic-box">مُهَنْدِسَة</span> (Insinyur Perempuan)<br><br>
-        Maka: <span class="arabic-box">مُمَرِّض</span> (Perawat Laki-laki) &rarr; ...?
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q2" id="q2a" value="A"><label for="q2a"><span class="option-badge">A</span>مُمَرِّضَة</label></div>
-        <div class="option"><input type="radio" name="q2" id="q2b" value="B"><label for="q2b"><span class="option-badge">B</span>صَيَّادَة</label></div>
-        <div class="option"><input type="radio" name="q2" id="q2c" value="C"><label for="q2c"><span class="option-badge">C</span>خَيَّاط</label></div>
-        <div class="option"><input type="radio" name="q2" id="q2d" value="D"><label for="q2d"><span class="option-badge">D</span>مُهَنْدِس</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Pola yang sama: menambah huruf ة di akhir kata untuk mengubah profesi laki-laki menjadi perempuan. Jadi مُمَرِّض menjadi مُمَرِّضَة.
-      </div>
-    </div>
+            <div class="question">
+                <div class="question-number">Soal 3</div>
+                <div class="question-text">"Aku bekerja di rumah sakit. Aku memakai seragam biru dan masker. Tugasku merawat orang yang sakit. Aku adalah seorang..."</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q3" value="a" id="q3a"><label for="q3a">a. <span class="arabic-text">صَيَّاد</span> (Sayyad)</label></div>
+                    <div class="option"><input type="radio" name="q3" value="b" id="q3b"><label for="q3b">b. <span class="arabic-text">خَيَّاط</span> (Khayyat)</label></div>
+                    <div class="option"><input type="radio" name="q3" value="c" id="q3c"><label for="q3c">c. <span class="arabic-text">مُمَرِّض</span> (Mumarrid)</label></div>
+                    <div class="option"><input type="radio" name="q3" value="d" id="q3d"><label for="q3d">d. <span class="arabic-text">مُهَنْدِس</span> (Muhandis)</label></div>
+                </div>
+            </div>
 
-    <!-- Soal 3 -->
-    <div class="question-card" data-answer="D">
-      <div class="question-header">
-        <span class="question-number">3</span>
-        <span class="question-label">Petunjuk Konteks</span>
-      </div>
-      <div class="question-text">
-        "Paman Ahmad memakai helm kuning. Ia sedang memeriksa gambar desain gedung bertingkat di kantornya."<br><br>
-        Profesi Paman Ahmad dalam bahasa Arab adalah...
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q3" id="q3a" value="A"><label for="q3a"><span class="option-badge">A</span>الخَيَّاطُ (Penjahit)</label></div>
-        <div class="option"><input type="radio" name="q3" id="q3b" value="B"><label for="q3b"><span class="option-badge">B</span>الصَّيَّادُ (Nelayan)</label></div>
-        <div class="option"><input type="radio" name="q3" id="q3c" value="C"><label for="q3c"><span class="option-badge">C</span>المُمَرِّضُ (Perawat)</label></div>
-        <div class="option"><input type="radio" name="q3" id="q3d" value="D"><label for="q3d"><span class="option-badge">D</span>المُهَنْدِسُ (Insinyur)</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Kata kunci "helm" dan "desain gedung" menunjukkan profesi Insinyur (المُهَنْدِسُ).
-      </div>
-    </div>
+            <!-- Bagian B -->
+            <div class="section-title">B. Detektif Pola Kata (Soal 4-6)</div>
 
-    <!-- Soal 4 -->
-    <div class="question-card" data-answer="B">
-      <div class="question-header">
-        <span class="question-number">4</span>
-        <span class="question-label">Analisis Kalimat</span>
-      </div>
-      <div class="question-text">
-        Perhatikan kalimat berikut:<br>
-        <span class="arabic-box">أُمِّي تَعْمَلُ فِي المَسْتَشْفَى. هِيَ تَعْتَنِي بِالمَرْضَى.</span><br>
-        (Ibuku bekerja di rumah sakit. Ia merawat orang-orang sakit.)<br><br>
-        Kata yang tepat untuk melengkapi profesi ibu adalah...
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q4" id="q4a" value="A"><label for="q4a"><span class="option-badge">A</span>صَيَّادَة</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4b" value="B"><label for="q4b"><span class="option-badge">B</span>مُمَرِّضَة</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4c" value="C"><label for="q4c"><span class="option-badge">C</span>خَيَّاطَة</label></div>
-        <div class="option"><input type="radio" name="q4" id="q4d" value="D"><label for="q4d"><span class="option-badge">D</span>مُهَنْدِسَة</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Kata kunci "Ibu" (perempuan) + "merawat orang sakit di rumah sakit" = Perawat perempuan (مُمَرِّضَة).
-      </div>
-    </div>
+            <div class="question">
+                <div class="question-number">Soal 4</div>
+                <div class="question-text">Perhatikan pola perubahan kata berikut:<br><strong>Laki-laki → Perempuan</strong><br><span class="arabic-text">مُهَنْدِس</span> → <span class="arabic-text">مُهَنْدِسَة</span><br><span class="arabic-text">مُمَرِّض</span> → <span class="arabic-text">مُمَرِّضَة</span><br><span class="arabic-text">صَيَّاد</span> → <span class="arabic-text">صَيَّادَة</span><br><br>Berdasarkan pola di atas, apa yang ditambahkan pada kata bahasa Arab untuk menunjukkan bahwa profesi tersebut dilakukan oleh <strong>perempuan</strong>?</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q4" value="a" id="q4a"><label for="q4a">a. Huruf Alif (ا) di akhir kata</label></div>
+                    <div class="option"><input type="radio" name="q4" value="b" id="q4b"><label for="q4b">b. Huruf Ta Marbuta (ة) di akhir kata</label></div>
+                    <div class="option"><input type="radio" name="q4" value="c" id="q4c"><label for="q4c">c. Huruf Ya (ي) di akhir kata</label></div>
+                    <div class="option"><input type="radio" name="q4" value="d" id="q4d"><label for="q4d">d. Tidak ada perubahan</label></div>
+                </div>
+            </div>
 
-    <!-- Soal 5 -->
-    <div class="question-card" data-answer="C">
-      <div class="question-header">
-        <span class="question-number">5</span>
-        <span class="question-label">Detektif Tata Bahasa</span>
-      </div>
-      <div class="question-text">
-        Kata <span class="arabic-box">خَيَّاطَة</span> memiliki huruf khusus di akhir kata yang membedakannya dengan <span class="arabic-box">خَيَّاط</span>.<br><br>
-        Huruf apakah itu dan apa fungsinya?
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q5" id="q5a" value="A"><label for="q5a"><span class="option-badge">A</span>Huruf ا (Alif), menunjukkan kata benda</label></div>
-        <div class="option"><input type="radio" name="q5" id="q5b" value="B"><label for="q5b"><span class="option-badge">B</span>Huruf ي (Ya), menunjukkan kata kerja</label></div>
-        <div class="option"><input type="radio" name="q5" id="q5c" value="C"><label for="q5c"><span class="option-badge">C</span>Huruf ة (Ta Marbutah), menunjukkan jenis kelamin perempuan</label></div>
-        <div class="option"><input type="radio" name="q5" id="q5d" value="D"><label for="q5d"><span class="option-badge">D</span>Huruf ن (Nun), menunjukkan tempat</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Huruf ة (ta marbutah) di akhir kata bahasa Arab berfungsi untuk menunjukkan jenis kelamin perempuan (muannats).
-      </div>
-    </div>
+            <div class="question">
+                <div class="question-number">Soal 5</div>
+                <div class="question-text">Jika <span class="arabic-text">خَيَّاط</span> artinya "penjahit laki-laki", maka <span class="arabic-text">خَيَّاطَة</span> artinya...</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q5" value="a" id="q5a"><label for="q5a">a. Nelayan perempuan</label></div>
+                    <div class="option"><input type="radio" name="q5" value="b" id="q5b"><label for="q5b">b. Insinyur perempuan</label></div>
+                    <div class="option"><input type="radio" name="q5" value="c" id="q5c"><label for="q5c">c. Perawat perempuan</label></div>
+                    <div class="option"><input type="radio" name="q5" value="d" id="q5d"><label for="q5d">d. Penjahit perempuan</label></div>
+                </div>
+            </div>
 
-    <!-- Soal 6 -->
-    <div class="question-card" data-answer="C">
-      <div class="question-header">
-        <span class="question-number">6</span>
-        <span class="question-label">Penalaran Terbalik</span>
-      </div>
-      <div class="question-text">
-        Manakah pernyataan di bawah ini yang <strong>TIDAK MASUK AKAL</strong> (tidak logis)?
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q6" id="q6a" value="A"><label for="q6a"><span class="option-badge">A</span><span class="arabic-box">الصَّيَّادُ يَصْطَادُ السَّمَكَ فِي البَحْرِ</span></label></div>
-        <div class="option"><input type="radio" name="q6" id="q6b" value="B"><label for="q6b"><span class="option-badge">B</span><span class="arabic-box">الخَيَّاطُ يَخِيطُ الثِّيَابَ بِالإِبْرَةِ</span></label></div>
-        <div class="option"><input type="radio" name="q6" id="q6c" value="C"><label for="q6c"><span class="option-badge">C</span><span class="arabic-box">المُمَرِّضَةُ تُعَالِجُ المَرْضَى فِي المَدْرَسَةِ</span></label></div>
-        <div class="option"><input type="radio" name="q6" id="q6d" value="D"><label for="q6d"><span class="option-badge">D</span><span class="arabic-box">المُهَنْدِسُ يُصَمِّمُ البِنَاءَ فِي المَكْتَبِ</span></label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Perawat seharusnya bekerja di rumah sakit (المُسْتَشْفَى), bukan di sekolah (المَدْرَسَة).
-      </div>
+            <div class="question">
+                <div class="question-number">Soal 6</div>
+                <div class="question-text">Manakah penulisan yang <strong>BENAR</strong> untuk "Insinyur Perempuan"?</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q6" value="a" id="q6a"><label for="q6a">a. <span class="arabic-text">مُهَنْدِس</span></label></div>
+                    <div class="option"><input type="radio" name="q6" value="b" id="q6b"><label for="q6b">b. <span class="arabic-text">مُهَنْدِسَة</span></label></div>
+                    <div class="option"><input type="radio" name="q6" value="c" id="q6c"><label for="q6c">c. <span class="arabic-text">مُمَرِّضَة</span></label></div>
+                    <div class="option"><input type="radio" name="q6" value="d" id="q6d"><label for="q6d">d. <span class="arabic-text">صَيَّادَة</span></label></div>
+                </div>
+            </div>
+
+            <!-- Bagian C -->
+            <div class="section-title">C. Soal Cerita Mini (Soal 7-9)</div>
+
+            <div class="question">
+                <div class="question-number">Soal 7</div>
+                <div class="question-text">Keluarga Ahmad memiliki 4 anggota dengan profesi berbeda:<br>• Ayah Ahmad adalah seorang <strong>insinyur</strong><br>• Ibu Ahmad adalah seorang <strong>penjahit</strong><br>• Kakak laki-laki Ahmad adalah seorang <strong>perawat</strong><br>• Kakak perempuan Ahmad adalah seorang <strong>nelayan</strong><br><br>Urutan profesi mereka dalam bahasa Arab yang <strong>benar</strong> adalah...</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q7" value="a" id="q7a"><label for="q7a">a. <span class="arabic-text">مُهَنْدِس – خَيَّاطَة – مُمَرِّض – صَيَّادَة</span></label></div>
+                    <div class="option"><input type="radio" name="q7" value="b" id="q7b"><label for="q7b">b. <span class="arabic-text">خَيَّاط – مُهَنْدِسَة – صَيَّاد – مُمَرِّضَة</span></label></div>
+                    <div class="option"><input type="radio" name="q7" value="c" id="q7c"><label for="q7c">c. <span class="arabic-text">مُهَنْدِس – صَيَّادَة – مُمَرِّض – خَيَّاطَة</span></label></div>
+                    <div class="option"><input type="radio" name="q7" value="d" id="q7d"><label for="q7d">d. <span class="arabic-text">مُمَرِّض – خَيَّاطَة – مُهَنْدِس – صَيَّاد</span></label></div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">Soal 8</div>
+                <div class="question-text">Siti pergi ke klinik karena sakit. Orang yang merawat Siti dan memberikan obat adalah seorang perawat perempuan. Dalam bahasa Arab, Siti dipanggil oleh...</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q8" value="a" id="q8a"><label for="q8a">a. <span class="arabic-text">صَيَّادَة</span></label></div>
+                    <div class="option"><input type="radio" name="q8" value="b" id="q8b"><label for="q8b">b. <span class="arabic-text">خَيَّاطَة</span></label></div>
+                    <div class="option"><input type="radio" name="q8" value="c" id="q8c"><label for="q8c">c. <span class="arabic-text">مُمَرِّضَة</span></label></div>
+                    <div class="option"><input type="radio" name="q8" value="d" id="q8d"><label for="q8d">d. <span class="arabic-text">مُهَنْدِسَة</span></label></div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">Soal 9</div>
+                <div class="question-text">Pak Rudi ingin memesan seragam sekolah untuk anaknya. Ia pergi ke tempat seorang <strong>penjahit laki-laki</strong>. Kata yang tepat untuk profesi orang yang dikunjungi Pak Rudi adalah...</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q9" value="a" id="q9a"><label for="q9a">a. <span class="arabic-text">صَيَّاد</span></label></div>
+                    <div class="option"><input type="radio" name="q9" value="b" id="q9b"><label for="q9b">b. <span class="arabic-text">خَيَّاط</span></label></div>
+                    <div class="option"><input type="radio" name="q9" value="c" id="q9c"><label for="q9c">c. <span class="arabic-text">مُمَرِّض</span></label></div>
+                    <div class="option"><input type="radio" name="q9" value="d" id="q9d"><label for="q9d">d. <span class="arabic-text">مُهَنْدِس</span></label></div>
+                </div>
+            </div>
+
+            <!-- Bagian D -->
+            <div class="section-title">D. Analisis & Berpikir Kritis (Soal 10-12)</div>
+
+            <div class="question">
+                <div class="question-number">Soal 10</div>
+                <div class="question-text">Perhatikan empat kata berikut! Manakah kata yang <strong>BERBEDA</strong> dari yang lain?<br>a. <span class="arabic-text">صَيَّاد</span><br>b. <span class="arabic-text">خَيَّاط</span><br>c. <span class="arabic-text">مُمَرِّض</span><br>d. <span class="arabic-text">صَيَّادَة</span><br><br><em>(Petunjuk: Perhatikan jenis kelamin yang ditunjukkan oleh setiap kata!)</em></div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q10" value="a" id="q10a"><label for="q10a">a. <span class="arabic-text">صَيَّاد</span></label></div>
+                    <div class="option"><input type="radio" name="q10" value="b" id="q10b"><label for="q10b">b. <span class="arabic-text">خَيَّاط</span></label></div>
+                    <div class="option"><input type="radio" name="q10" value="c" id="q10c"><label for="q10c">c. <span class="arabic-text">مُمَرِّض</span></label></div>
+                    <div class="option"><input type="radio" name="q10" value="d" id="q10d"><label for="q10d">d. <span class="arabic-text">صَيَّادَة</span></label></div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">Soal 11</div>
+                <div class="question-text">Lengkapi percakapan berikut dengan kata yang tepat!<br><br><strong>Guru:</strong> <span class="arabic-text">مَا مِهْنَةُ أَبِيكَ؟</span> <em>(Apa profesi ayahmu?)</em><br><strong>Ahmad:</strong> <span class="arabic-text">أَبِيْ ... ، هُوَ يَعْمَلُ فِي المُسْتَشْفَى</span> <em>(Ayahku adalah ..., dia bekerja di rumah sakit)</em><br><br>Kata yang tepat untuk mengisi titik-titik adalah...</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q11" value="a" id="q11a"><label for="q11a">a. <span class="arabic-text">صَيَّاد</span></label></div>
+                    <div class="option"><input type="radio" name="q11" value="b" id="q11b"><label for="q11b">b. <span class="arabic-text">خَيَّاط</span></label></div>
+                    <div class="option"><input type="radio" name="q11" value="c" id="q11c"><label for="q11c">c. <span class="arabic-text">مُمَرِّض</span></label></div>
+                    <div class="option"><input type="radio" name="q11" value="d" id="q11d"><label for="q11d">d. <span class="arabic-text">مُهَنْدِس</span></label></div>
+                </div>
+            </div>
+
+            <div class="question">
+                <div class="question-number">Soal 12</div>
+                <div class="question-text"><strong>Tantangan Berpikir!</strong><br><br>Seorang anak berkata: <em>"Ibuku adalah seorang <span class="arabic-text">مُهَنْدِس</span>"</em><br><br>Apakah kalimat anak tersebut <strong>BENAR</strong> atau <strong>SALAH</strong>? Jelaskan alasannya!</div>
+                <div class="options">
+                    <div class="option"><input type="radio" name="q12" value="a" id="q12a"><label for="q12a">a. Benar, karena <span class="arabic-text">مُهَنْدِس</span> artinya insinyur</label></div>
+                    <div class="option"><input type="radio" name="q12" value="b" id="q12b"><label for="q12b">b. Salah, seharusnya menggunakan <span class="arabic-text">مُهَنْدِسَة</span> karena ibunya perempuan</label></div>
+                    <div class="option"><input type="radio" name="q12" value="c" id="q12c"><label for="q12c">c. Benar, karena semua profesi tidak berubah bentuk</label></div>
+                    <div class="option"><input type="radio" name="q12" value="d" id="q12d"><label for="q12d">d. Salah, seharusnya menggunakan <span class="arabic-text">خَيَّاطَة</span></label></div>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitQuiz()">LIHAT HASIL & KIRIM KE GURU</button>
+        </form>
     </div>
 
-    <!-- Soal 7 -->
-    <div class="question-card" data-answer="D">
-      <div class="question-header">
-        <span class="question-number">7</span>
-        <span class="question-label">Teka-Teki Singkat</span>
-      </div>
-      <div class="question-text">
-        "Aku punya jarum dan benang, tapi aku bukan dokter yang menyuntik pasien. Aku seorang <strong>laki-laki</strong>."<br><br>
-        Siapakah aku?
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q7" id="q7a" value="A"><label for="q7a"><span class="option-badge">A</span>مُمَرِّض</label></div>
-        <div class="option"><input type="radio" name="q7" id="q7b" value="B"><label for="q7b"><span class="option-badge">B</span>مُهَنْدِس</label></div>
-        <div class="option"><input type="radio" name="q7" id="q7c" value="C"><label for="q7c"><span class="option-badge">C</span>صَيَّاد</label></div>
-        <div class="option"><input type="radio" name="q7" id="q7d" value="D"><label for="q7d"><span class="option-badge">D</span>خَيَّاط</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Teka-teki "jarum & benang" + "laki-laki" = Penjahit laki-laki (خَيَّاط).
-      </div>
+    <!-- Modal Hasil -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div class="score-display">
+                <h2 id="scoreValue">0/12</h2>
+                <p id="scoreMessage">Terus Belajar!</p>
+            </div>
+            <div class="answer-review" id="answerReview"></div>
+            <button class="send-btn" id="sendBtn" onclick="sendToGoogleSheet()">KIRIM HASIL KE GURU</button>
+        </div>
     </div>
 
-    <!-- Soal 8 -->
-    <div class="question-card" data-answer="A">
-      <div class="question-header">
-        <span class="question-number">8</span>
-        <span class="question-label">Penerjemahan Logis</span>
-      </div>
-      <div class="question-text">
-        "Kakekku adalah seorang nelayan, dan nenekku adalah seorang penjahit."<br><br>
-        Terjemahan bahasa Arab yang <strong>paling tepat</strong> adalah...
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q8" id="q8a" value="A"><label for="q8a"><span class="option-badge">A</span><span class="arabic-box">جَدِّي صَيَّادٌ وَجَدَّتِي خَيَّاطَةٌ</span></label></div>
-        <div class="option"><input type="radio" name="q8" id="q8b" value="B"><label for="q8b"><span class="option-badge">B</span><span class="arabic-box">جَدِّي خَيَّاطٌ وَجَدَّتِي صَيَّادَةٌ</span></label></div>
-        <div class="option"><input type="radio" name="q8" id="q8c" value="C"><label for="q8c"><span class="option-badge">C</span><span class="arabic-box">جَدِّي مُهَنْدِسٌ وَجَدَّتِي مُمَرِّضَةٌ</span></label></div>
-        <div class="option"><input type="radio" name="q8" id="q8d" value="D"><label for="q8d"><span class="option-badge">D</span><span class="arabic-box">جَدِّي صَيَّادَةٌ وَجَدَّتِي خَيَّاطٌ</span></label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Kakek = صَيَّادٌ (laki-laki), Nenek = خَيَّاطَةٌ (perempuan).
-      </div>
-    </div>
+    <script>
+        // ============================================
+        // PASTE URL GOOGLE APPS SCRIPT DI SINI
+        // ============================================
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx6q3dzUjt1XdZ6lFI7ABAi7aby3kUxWF43qhbMWs1JGpW4f_ixsBf94WZ0bZFEXl-b/exec';
 
-    <!-- Soal 9 -->
-    <div class="question-card" data-answer="C">
-      <div class="question-header">
-        <span class="question-number">9</span>
-        <span class="question-label">Deduksi Ganda</span>
-      </div>
-      <div class="question-text">
-        Andi ingin menjadi <strong>dokter laki-laki</strong>, sedangkan Sinta ingin menjadi <strong>perawat perempuan</strong>.<br><br>
-        Kata bahasa Arab yang tepat secara berurutan adalah...
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q9" id="q9a" value="A"><label for="q9a"><span class="option-badge">A</span>طَبِيب dan مُمَرِّض</label></div>
-        <div class="option"><input type="radio" name="q9" id="q9b" value="B"><label for="q9b"><span class="option-badge">B</span>طَبِيبَة dan مُمَرِّضَة</label></div>
-        <div class="option"><input type="radio" name="q9" id="q9c" value="C"><label for="q9c"><span class="option-badge">C</span>طَبِيب dan مُمَرِّضَة</label></div>
-        <div class="option"><input type="radio" name="q9" id="q9d" value="D"><label for="q9d"><span class="option-badge">D</span>طَبِيبَة dan مُمَرِّض</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Andi (laki-laki) = طَبِيب, Sinta (perempuan) = مُمَرِّضَة.
-      </div>
-    </div>
+        const correctAnswers = {
+            q1:'b', q2:'a', q3:'c', q4:'b', q5:'d', q6:'b',
+            q7:'a', q8:'c', q9:'b', q10:'d', q11:'c', q12:'b'
+        };
 
-    <!-- Soal 10 -->
-    <div class="question-card" data-answer="B">
-      <div class="question-header">
-        <span class="question-number">10</span>
-        <span class="question-label">Hubungan Kata</span>
-      </div>
-      <div class="question-text">
-        Kata <span class="arabic-box">المُسْتَشْفَى</span> (Rumah Sakit) &rarr; tempat kerja profesi...<br>
-        Kata <span class="arabic-box">البَحْر</span> (Laut) &rarr; tempat kerja profesi...<br><br>
-        Pilihan yang tepat untuk mengisi titik-titik di atas adalah...
-      </div>
-      <div class="options">
-        <div class="option"><input type="radio" name="q10" id="q10a" value="A"><label for="q10a"><span class="option-badge">A</span>الخَيَّاطُ dan المُهَنْدِسُ</label></div>
-        <div class="option"><input type="radio" name="q10" id="q10b" value="B"><label for="q10b"><span class="option-badge">B</span>المُمَرِّضُ dan الصَّيَّادُ</label></div>
-        <div class="option"><input type="radio" name="q10" id="q10c" value="C"><label for="q10c"><span class="option-badge">C</span>المُهَنْدِسُ dan الخَيَّاطُ</label></div>
-        <div class="option"><input type="radio" name="q10" id="q10d" value="D"><label for="q10d"><span class="option-badge">D</span>الصَّيَّادُ dan المُمَرِّضُ</label></div>
-      </div>
-      <div class="explanation">
-        <strong>Pembahasan:</strong> Tempat kerja: Rumah Sakit &rarr; Perawat (المُمَرِّضُ), Laut &rarr; Nelayan (الصَّيَّادُ).
-      </div>
-    </div>
+        const explanations = {
+            q1: 'مُهَنْدِس (Muhandis) = Insinyur. Insinyur bekerja di proyek pembangunan dan merancang bangunan.',
+            q2: 'صَيَّاد (Sayyad) = Nelayan. Nelayan pergi ke laut dan menangkap ikan dengan jala.',
+            q3: 'مُمَرِّض (Mumarrid) = Perawat. Perawat bekerja di rumah sakit dan merawat orang sakit.',
+            q4: 'Huruf Ta Marbuta (ة) ditambahkan di akhir kata untuk menunjukkan profesi perempuan.',
+            q5: 'خَيَّاطَة (Khayyatah) = Penjahit perempuan. Akhiran ة menunjukkan bentuk feminin.',
+            q6: 'مُهَنْدِسَة (Muhandisah) = Insinyur perempuan. Bentuk feminin dari مُهَنْدِس.',
+            q7: 'Urutan benar: مُهَنْدِس (Insinyur Lk) – خَيَّاطَة (Penjahit Pr) – مُمَرِّض (Perawat Lk) – صَيَّادَة (Nelayan Pr).',
+            q8: 'مُمَرِّضَة (Mumarridah) = Perawat perempuan. Siti dirawat oleh perawat perempuan.',
+            q9: 'خَيَّاط (Khayyat) = Penjahit laki-laki. Pak Rudi mengunjungi penjahit laki-laki.',
+            q10: 'صَيَّادَة adalah satu-satunya kata untuk perempuan (ada ة), lainnya untuk laki-laki.',
+            q11: 'مُمَرِّض (Mumarrid) = Perawat. Ayah Ahmad bekerja di rumah sakit (المُسْتَشْفَى).',
+            q12: 'Salah, karena ibunya perempuan harus menggunakan مُهَنْدِسَة (bentuk feminin), bukan مُهَنْدِس (bentuk maskulin).'
+        };
 
-    <div class="submit-section">
-      <button type="button" class="btn btn-primary" onclick="submitQuiz()">
-        <i class="fa-solid fa-paper-plane"></i> Kirim Jawaban
-      </button>
-      <button type="button" class="btn btn-secondary" onclick="resetQuiz()">
-        <i class="fa-solid fa-rotate-left"></i> Reset
-      </button>
-    </div>
-  </form>
-</div>
+        // Efek visual saat memilih
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                radio.checked = true;
+                const question = this.closest('.question');
+                question.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                updateProgress();
+            });
+        });
 
-<!-- Modal Hasil Score -->
-<div class="modal" id="resultModal">
-  <div class="modal-content">
-    <div class="score-circle">
-      <div class="score-number" id="scoreNumber">0</div>
-      <div class="score-label">NILAI AKHIR</div>
-    </div>
-    <h2 id="resultTitle" style="color: var(--primary-dark); margin-bottom: 6px;">Hasil Quiz</h2>
-    <p id="resultMessage" style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;"></p>
-
-    <!-- Status Pengiriman Ke Google Drive -->
-    <div class="sending-status loading" id="sendingStatus">
-      <i class="fa-solid fa-spinner fa-spin"></i> Mengirim nilai ke Google Drive Guru...
-    </div>
-
-    <div class="result-stats">
-      <div>
-        <div class="stat-value" id="correctCount" style="color: var(--success-color);">0</div>
-        <div class="stat-label">Benar</div>
-      </div>
-      <div>
-        <div class="stat-value" id="wrongCount" style="color: var(--danger-color);">0</div>
-        <div class="stat-label">Salah</div>
-      </div>
-      <div>
-        <div class="stat-value" id="unansweredCount" style="color: var(--text-muted);">0</div>
-        <div class="stat-label">Kosong</div>
-      </div>
-    </div>
-
-    <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeModal()">
-      Lihat Pembahasan Detail
-    </button>
-  </div>
-</div>
-
-<!-- Modal Panduan Kode Apps Script Guru -->
-<div class="modal" id="gasModal">
-  <div class="modal-content" style="max-width: 650px; text-align: left;">
-    <h3 style="color: var(--primary-dark); margin-bottom: 12px;"><i class="fa-solid fa-gears"></i> Panduan Integration Google Drive</h3>
-    <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px;">
-      Ikuti langkah berikut agar hasil pengerjaan siswa terbuatkan <strong>Folder Otomatis & File Rekap Google Sheets</strong> di Google Drive Anda:
-    </p>
-    
-    <ol style="font-size: 13px; margin-left: 20px; color: var(--text-main); line-height: 1.8;">
-      <li>Buka <a href="https://script.google.com/" target="_blank" style="color: var(--primary-color); font-weight: bold;">script.google.com</a> lalu buat <strong>Proyek Baru</strong>.</li>
-      <li>Salin (copy) seluruh kode Google Apps Script (`Code.gs`) di bawah ini:</li>
-    </ol>
-
-    <!-- Kode GS untuk di-copy -->
-    <div class="code-box" id="gsCodeSnippet">
-function doPost(e) {
-  try {
-    var data = JSON.parse(e.postData.contents);
-    
-    // 1. Nama Folder yang akan dibuat otomatis di Google Drive Guru per Kelas
-    var folderName = "Rekap Nilai Bahasa Arab - " + (data.kelas || "Kelas 6");
-    
-    // 2. Cari atau Buat Folder Otomatis di Google Drive
-    var folders = DriveApp.getFoldersByName(folderName);
-    var folder;
-    if (folders.hasNext()) {
-      folder = folders.next();
-    } else {
-      folder = DriveApp.createFolder(folderName);
-    }
-    
-    // 3. Cari atau Buat Spreadsheet Rekap di dalam Folder tersebut
-    var fileName = "Nilai_Bahasa_Arab_" + (data.kelas || "Kelas_6").replace(/\s+/g, '_');
-    var files = folder.getFilesByName(fileName);
-    var ss;
-    
-    if (files.hasNext()) {
-      ss = SpreadsheetApp.open(files.next());
-    } else {
-      // Buat file Google Sheet baru
-      ss = SpreadsheetApp.create(fileName);
-      var file = DriveApp.getFileById(ss.getId());
-      
-      // Pindahkan file ke dalam folder khusus
-      folder.addFile(file);
-      DriveApp.getRootFolder().removeFile(file);
-      
-      // Buat Header Kolom
-      var sheet = ss.getActiveSheet();
-      sheet.appendRow(["Tanggal & Waktu", "Nama Siswa", "Kelas", "No. Absen", "Nilai Akhir", "Benar", "Salah", "Tidak Dijawab"]);
-      sheet.getRange(1, 1, 1, 8).setFontWeight("bold").setBackground("#1e40af").setFontColor("#ffffff");
-    }
-    
-    // 4. Masukkan Data Nilai Siswa
-    var sheet = ss.getActiveSheet();
-    sheet.appendRow([
-      new Date().toLocaleString("id-ID"),
-      data.nama,
-      data.kelas,
-      data.absen,
-      data.nilai,
-      data.benar,
-      data.salah,
-      data.kosong
-    ]);
-    
-    return ContentService.createTextOutput(JSON.stringify({ status: "success", message: "Data tersimpan" }))
-      .setMimeType(ContentService.MimeType.JSON);
-      
-  } catch (err) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
-    </div>
-
-    <ol start="3" style="font-size: 13px; margin-left: 20px; color: var(--text-main); line-height: 1.8; margin-top: 10px;">
-      <li>Klik <strong>Deploy (Terapkan) &rarr; Deployment Baru (New Deployment)</strong>.</li>
-      <li>Pilih Jenis: <strong>Web App (Aplikasi Web)</strong>.</li>
-      <li>Atur <em>"Who has access" / "Siapa yang memiliki akses"</em> menjadi <strong>Anyone (Siapa saja)</strong>.</li>
-      <li>Salin <strong>Web App URL</strong> yang dihasilkan, lalu tempel pada variabel <code>GOOGLE_SCRIPT_URL</code> di file ini (sekitar baris 380).</li>
-    </ol>
-
-    <div style="margin-top: 20px; text-align: right;">
-      <button class="btn btn-secondary" onclick="closeGasModal()">Tutup</button>
-    </div>
-  </div>
-</div>
-
-<script>
-
-  // ===================================================================================
-  // 🚨 TANDA KHUSUS: GANTI URL DI BAWAH INI DENGAN URL WEB APP GOOGLE SCRIPT ANDA 🚨
-  // ===================================================================================
-  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzg58QrBJaaJrwxoO781xGITtqiu9d2-3BIyn4R4JMUJiNwtllDSVmo63dWGJ3Utfxh/exec"; 
-  // ===================================================================================
-
-  document.querySelectorAll('input[type="radio"]').forEach(radio => {
-    radio.addEventListener('change', updateProgress);
-  });
-
-  function updateProgress() {
-    const answered = document.querySelectorAll('input[type="radio"]:checked').length;
-    const total = 10;
-    const percent = (answered / total) * 100;
-    document.getElementById('progressFill').style.width = percent + '%';
-    document.getElementById('progressText').innerHTML = `<i class="fa-solid fa-list-check"></i> ${answered} dari ${total} soal dijawab`;
-  }
-
-  function showAlert(msg) {
-    const alertBanner = document.getElementById('alertBanner');
-    document.getElementById('alertText').textContent = msg;
-    alertBanner.classList.add('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function hideAlert() {
-    document.getElementById('alertBanner').classList.remove('show');
-  }
-
-  function submitQuiz() {
-    hideAlert();
-    
-    // Validasi Identitas Siswa
-    const nama = document.getElementById('studentName').value.trim();
-    const kelas = document.getElementById('studentClass').value;
-    const absen = document.getElementById('studentAbsence').value.trim();
-
-    if (!nama || !absen) {
-      showAlert("Mohon isi Nama Lengkap Siswa dan Nomor Absen terlebih dahulu!");
-      return;
-    }
-
-    const cards = document.querySelectorAll('.question-card');
-    let correct = 0;
-    let wrong = 0;
-    let unanswered = 0;
-
-    cards.forEach((card, index) => {
-      const correctAnswer = card.getAttribute('data-answer');
-      const selected = card.querySelector(`input[name="q${index+1}"]:checked`);
-      const explanation = card.querySelector('.explanation');
-      const options = card.querySelectorAll('.option');
-
-      options.forEach(opt => opt.classList.remove('correct', 'wrong'));
-
-      if (!selected) {
-        unanswered++;
-      } else {
-        const selectedValue = selected.value;
-        const selectedOption = selected.closest('.option');
-
-        if (selectedValue === correctAnswer) {
-          correct++;
-          selectedOption.classList.add('correct');
-        } else {
-          wrong++;
-          selectedOption.classList.add('wrong');
-          options.forEach(opt => {
-            const input = opt.querySelector('input');
-            if (input.value === correctAnswer) {
-              opt.classList.add('correct');
+        function updateProgress() {
+            let answered = 0;
+            for (let i = 1; i <= 12; i++) {
+                if (document.querySelector(`input[name="q${i}"]:checked`)) answered++;
             }
-          });
+            document.getElementById('progressFill').style.width = (answered / 12 * 100) + '%';
         }
-      }
-      explanation.classList.add('show');
-    });
 
-    const score = correct * 10;
-    document.getElementById('scoreNumber').textContent = score;
-    document.getElementById('correctCount').textContent = correct;
-    document.getElementById('wrongCount').textContent = wrong;
-    document.getElementById('unansweredCount').textContent = unanswered;
+        function submitQuiz() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value.trim();
 
-    let title, message;
-    if (score >= 90) {
-      title = 'Mumtaz! (ممتاز)';
-      message = 'Sangat Luar Biasa! Pemahaman bahasa Arabmu sempurna.';
-    } else if (score >= 70) {
-      title = 'Jayyid Jiddan! (جيد جداً)';
-      message = 'Sangat Bagus! Pemahamanmu sudah cukup tinggi.';
-    } else if (score >= 50) {
-      title = 'Jayyid (جيد)';
-      message = 'Cukup Baik. Pelajari kembali materi kosakata yang kurang tepat ya!';
-    } else {
-      title = 'Rasib (راسب)';
-      message = 'Jangan berkecil hati. Mari pelajari kembali materinya!';
-    }
+            if (!studentName || !studentClass) {
+                alert('Mohon isi nama dan kelas terlebih dahulu!');
+                return;
+            }
 
-    document.getElementById('resultTitle').textContent = title;
-    document.getElementById('resultMessage').textContent = message;
-    document.getElementById('resultModal').classList.add('show');
+            let allAnswered = true;
+            for (let i = 1; i <= 12; i++) {
+                if (!document.querySelector(`input[name="q${i}"]:checked`)) {
+                    allAnswered = false;
+                    break;
+                }
+            }
 
-    // Kirim Data Hasil Kuis ke Google Apps Script Guru
-    sendToGoogleSheet({
-      nama: nama,
-      kelas: kelas,
-      absen: absen,
-      nilai: score,
-      benar: correct,
-      salah: wrong,
-      kosong: unanswered
-    });
-  }
+            if (!allAnswered) {
+                alert('Mohon jawab semua soal terlebih dahulu!');
+                return;
+            }
 
-  function sendToGoogleSheet(payload) {
-    const statusDiv = document.getElementById('sendingStatus');
-    
-    // Pengecekan URL placeholder
-    if (!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL.includes("YOUR_SCRIPT_ID_HERE")) {
-      statusDiv.className = "sending-status error";
-      statusDiv.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> URL Google Script belum diganti. Nilai tidak terkirim.`;
-      return;
-    }
+            let score = 0;
+            const answers = {};
+            for (let i = 1; i <= 12; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`).value;
+                answers[`q${i}`] = answer;
+                if (answer === correctAnswers[`q${i}`]) score++;
+            }
 
-    statusDiv.className = "sending-status loading";
-    statusDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Mengirim nilai ke Google Drive Guru...`;
+            document.getElementById('scoreValue').textContent = `${score}/12`;
+            let message = '';
+            if (score === 12) message = 'Sempurna! Luar Biasa!';
+            else if (score >= 10) message = 'Hebat! Terus Pertahankan!';
+            else if (score >= 7) message = 'Bagus! Masih Bisa Ditingkatkan!';
+            else message = 'Terus Belajar! Kamu Pasti Bisa!';
+            document.getElementById('scoreMessage').textContent = message;
 
-    fetch(GOOGLE_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors", // Standard mode CORS untuk Google Apps Script
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-    .then(() => {
-      statusDiv.className = "sending-status success";
-      statusDiv.innerHTML = `<i class="fa-solid fa-circle-check"></i> Nilai berhasil tersimpan otomatis di Google Drive Guru!`;
-    })
-    .catch(err => {
-      console.error(err);
-      statusDiv.className = "sending-status error";
-      statusDiv.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Gagal terhubung ke Google Drive.`;
-    });
-  }
+            document.getElementById('answerReview').innerHTML = generateReviewHTML(answers);
+            document.getElementById('resultModal').style.display = 'block';
 
-  function closeModal() {
-    document.getElementById('resultModal').classList.remove('show');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+            window.quizData = {
+                timestamp: new Date().toISOString(),
+                nama: studentName,
+                kelas: studentClass,
+                nilai: score,
+                total: 12,
+                jawaban: answers
+            };
+        }
 
-  function resetQuiz() {
-    hideAlert();
-    document.getElementById('quizForm').reset();
-    document.querySelectorAll('.option').forEach(opt => opt.classList.remove('correct', 'wrong'));
-    document.querySelectorAll('.explanation').forEach(exp => exp.classList.remove('show'));
-    updateProgress();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+        function generateReviewHTML(answers) {
+            let html = '<h3 style="margin-bottom:20px;color:#333;">Review Jawaban:</h3>';
+            for (let i = 1; i <= 12; i++) {
+                const userAnswer = answers[`q${i}`];
+                const correctAnswer = correctAnswers[`q${i}`];
+                const isCorrect = userAnswer === correctAnswer;
+                html += `<div class="answer-item ${isCorrect ? 'correct' : 'incorrect'}">
+                    <h4>Soal ${i}: ${isCorrect ? 'Benar' : 'Salah'}</h4>
+                    <p><strong>Jawaban kamu:</strong> ${userAnswer.toUpperCase()}</p>
+                    ${!isCorrect ? `<p><strong>Jawaban benar:</strong> ${correctAnswer.toUpperCase()}</p>` : ''}
+                    <p><strong>Penjelasan:</strong> ${explanations[`q${i}`]}</p>
+                </div>`;
+            }
+            return html;
+        }
 
-  function openGasModal() { document.getElementById('gasModal').classList.add('show'); }
-  function closeGasModal() { document.getElementById('gasModal').classList.remove('show'); }
-</script>
+        function closeModal() {
+            document.getElementById('resultModal').style.display = 'none';
+        }
 
+        async function sendToGoogleSheet() {
+            const sendBtn = document.getElementById('sendBtn');
+            sendBtn.disabled = true;
+            sendBtn.textContent = 'MENGIRIM...';
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(window.quizData)
+                });
+
+                alert('Hasil berhasil dikirim ke guru! Terima kasih.');
+                sendBtn.textContent = 'TERKIRIM';
+                sendBtn.style.background = '#28a745';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Terjadi kesalahan. Silakan screenshot hasil ini dan kirim ke guru.');
+                sendBtn.disabled = false;
+                sendBtn.textContent = 'KIRIM HASIL KE GURU';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('resultModal')) closeModal();
+        }
+    </script>
 </body>
 </html>
